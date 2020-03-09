@@ -1,21 +1,21 @@
-import { ReactNode } from 'react';
 import * as React from 'react';
+import { ReactNode } from 'react';
 import { css, cx } from 'emotion';
-import { COLOR_PRIMARY, COLOR_WHITE, CONTENT_WIDTH } from '../../constants/theme';
+import { COLOR_PRIMARY, COLOR_WHITE } from '../../constants/theme';
+import Content from '../content';
 
 interface SectionProps {
   children: ReactNode;
   center?: boolean;
   bg?: 'dark' | 'light';
+  className?: string;
 }
 
 const styles = css({
   padding: '40px 0',
-  ' > .content': {
-    width: CONTENT_WIDTH,
-    maxWidth: '100%',
-    margin: '0 auto',
-  },
+  position: 'relative',
+  overflow: 'hidden',
+  zIndex: 10,
   '&.section-center-content': {
     textAlign: 'center',
   },
@@ -25,13 +25,13 @@ const styles = css({
   },
 });
 
-const Section = ({ children, center = false, bg = 'light' }: SectionProps) => {
+const Section = ({ children, center = false, bg = 'light', className = '' }: SectionProps) => {
   return (<div className={cx('section', styles, `section-bg-${bg}`, {
     'section-center-content': center,
-  })}>
-    <div className='content'>
-      { children }
-    </div>
+  }, className)}>
+    <Content>
+      {children}
+    </Content>
   </div>)
 };
 

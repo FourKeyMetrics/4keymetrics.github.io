@@ -1,5 +1,6 @@
 const {resolve} = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 // const TerserWebpackPlugin = require('terser-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -23,31 +24,36 @@ const config = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '/[name].[ext]',
+            publicPath: 'dist',
+          },
+        }],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: '4 Key Metrics',
       template: 'src/index.html',
-      filename: "../index.html"
+      filename: isProd ? "../index.html" : 'index.html',
     }),
     new HtmlWebpackPlugin({
       title: '4 Key Metrics',
       template: 'src/index.html',
-      filename: "../404.html"
+      filename: isProd ? "../404.html" : '404.html',
     }),
   ],
 };
 
-// config.devServer = {
-//   port: 8888,
-//   open: true,
-//   proxy: {
-//     '/api': {
-//       target: 'http://localhost:1337',
-//       pathRewrite: { '^/api' : '' },
-//     },
-//   },
-// };
+// if (!isProd) {
+//   config.devServer = {
+//     publicPath: '/dev/',
+//   };
+// }
 
 module.exports = config;
