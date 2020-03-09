@@ -1,5 +1,5 @@
 import { css } from 'emotion';
-import { COLOR_DARK, COLOR_TEXT } from '../../constants/theme';
+import { COLOR_DARK, COLOR_TEXT, MAX_M } from '../../constants/theme';
 
 export const conceptStyles = css({
   width: '80%',
@@ -17,4 +17,9 @@ export const conceptStyles = css({
     textAlign: 'right',
     margin: '0 0 60px auto',
   },
+  [MAX_M]: {
+    ' p': {
+      fontSize: '14px',
+    },
+  }
 });

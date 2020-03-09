@@ -2,6 +2,7 @@ import * as React from 'react';
 import Section from '../../ui-common/section';
 import banner from '../images/home-banner.png';
 import { css } from 'emotion';
+import { MAX_M } from '../../constants/theme';
 
 const bannerStyles = css({
   minHeight: '240px',
@@ -23,6 +24,20 @@ const bannerStyles = css({
     background: 'rgba(0, 0, 0, 0.64)',
     padding: '10px',
     display: 'inline-block',
+  },
+  [MAX_M]: {
+    ' img.bg': {
+      width: 'auto',
+    },
+    ' h1': {
+      fontSize: '36px',
+      ' span': {
+        padding: '15px',
+      },
+    },
+    ' p': {
+      fontSize: '14px',
+    },
   },
 });
 

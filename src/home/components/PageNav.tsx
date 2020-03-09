@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Content from '../../ui-common/content';
 import { css } from 'emotion';
-import { COLOR_PRIMARY, COLOR_WHITE } from '../../constants/theme';
+import { COLOR_PRIMARY, COLOR_WHITE, MAX_M } from '../../constants/theme';
 
 const navStyles = css({
   background: COLOR_PRIMARY,
@@ -21,6 +21,19 @@ const navStyles = css({
     padding: '20px 0',
     display: 'flex',
     justifyContent: 'space-between',
+
+  },
+  [MAX_M]: {
+    ' ul': {
+      flexWrap: 'wrap',
+      padding: '10px 0',
+      ' .title': {
+        display: 'none',
+      },
+      ' li': {
+        margin: '10px 0',
+      }
+    },
   },
 });
 
@@ -28,7 +41,7 @@ const PageNav = () => {
   return (<div className={navStyles}>
     <Content>
       <ul>
-        <li><i>Concept:</i></li>
+        <li className='title'><i>Concept:</i></li>
         <li><a href="#lead-time">Lead Time</a></li>
         <li><a href="#deployment-frequency">Deployment frequency</a></li>
         <li><a href="#mttr">Mean time to restore</a></li>
