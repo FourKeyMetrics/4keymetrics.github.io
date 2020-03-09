@@ -10,8 +10,8 @@ const config = {
     index: './src/index.tsx',
   },
   output: {
-    path: resolve(__dirname, 'home'),
-    filename: '[name].js',
+    path: resolve(__dirname, 'dist'),
+    filename: '[name].[hash].js',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -29,11 +29,12 @@ const config = {
     new HtmlWebpackPlugin({
       title: '4 Key Metrics',
       template: 'src/index.html',
+      filename: "../index.html"
     }),
     new HtmlWebpackPlugin({
       title: '4 Key Metrics',
       template: 'src/index.html',
-      filename: "404.html"
+      filename: "../404.html"
     }),
   ],
 };
