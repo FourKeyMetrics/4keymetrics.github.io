@@ -8,11 +8,15 @@ import LeadTime from './components/LeadTime';
 import DeploymentFrequency from './components/DeploymentFrequency';
 import ChangeFailPercentage from './components/ChangeFailPercentage';
 import MeanTimeToRestore from './components/MeanTimeToRestore';
+import Why from './components/Why';
+import How from './components/How';
 
 const Home = () => {
   return (<Page>
     <Banner/>
     <PageNav />
+    <Why />
+    <How/>
     <Section>
       <LeadTime />
       <DeploymentFrequency />

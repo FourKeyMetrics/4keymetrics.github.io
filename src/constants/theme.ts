@@ -2,6 +2,7 @@ export const COLOR_PRIMARY = '#0C0D0F';
 export const COLOR_TEXT = '#3B474E';
 export const COLOR_DARK = '#3B474E';
 export const COLOR_WHITE = '#FBFBFC';
+export const COLOR_LIGHT = '#CCC';
 
 export const CONTENT_WIDTH = '1120px';
 export const BREAKPOINT_M = 680;
