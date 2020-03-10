@@ -8,6 +8,7 @@ interface ButtonProps {
   children: ReactNode;
   type?: 'primary' | 'secondary';
   disabled?: boolean;
+  size?: 'small' | 'default' | 'large';
 }
 
 const styles = css({
@@ -33,12 +34,18 @@ const styles = css({
   '&:disabled': {
     background: '#999',
   },
+  '&.button-small': {
+    fontSize: '14px',
+    lineHeight: '30px',
+    padding: '0 16px',
+    minWidth: '80px',
+  },
 });
 
 const Button = (props: ButtonProps) => {
-  const { children, onClick, type = 'primary', disabled = false, href } = props;
+  const { children, onClick, type = 'primary', disabled = false, href, size = 'default' } = props;
   if (href) {
-    return (<a className={cx(styles, type)} href={href}>{children}</a>)
+    return (<a className={cx(styles, type, `button-${size}`)} href={href}>{children}</a>)
   } else {
     return (<button className={cx(styles, type)} disabled={disabled} onClick={onClick}>{children}</button>)
   }
